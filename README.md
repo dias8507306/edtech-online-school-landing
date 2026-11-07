@@ -58,9 +58,9 @@ Notes: course video IDs in `src/data.js` are placeholders (`VIDEO_ID_n`) — put
 
 > All data in this repository is randomly generated; brand names are anonymized. "EduApp", its logo, people, reviews, statistics, prices and contacts are fictional. School names (НЗМ/НИШ, БИЛ, РФМШ, ҰБТ) are public exam names.
 
-## Қысқаша (KZ)
+## Кратко (RU)
 
-НЗМ, БИЛ, РФМШ және ҰБТ-ға дайындайтын онлайн-мектепке арналған екі тілді (қазақша / орысша) лендинг.
-React 19 + Tailwind CSS 4, Vite арқылы статикалық HTML-ге пререндер жасалады — SEO-ға ыңғайлы.
-Ішінде демо-тест, тегін диагностика мен толық аналитика, сүзгісі бар тесттер каталогы және тіркелу беті бар.
-Іске қосу: `npm install`, кейін `npm run dev`. Барлық деректер кездейсоқ жасалған, бренд атаулары өзгертілген.
+Двуязычный (казахский / русский) лендинг онлайн-школы подготовки к НИШ, БИЛ, РФМШ и ЕНТ.
+React 19 + Tailwind CSS 4, пререндер в статический HTML через Vite — удобно для SEO.
+Внутри демо-тест, бесплатная диагностика с подробной аналитикой, каталог тестов с фильтрами и страница регистрации.
+Запуск: `npm install`, затем `npm run dev`. Все данные сгенерированы случайно, названия брендов изменены.
