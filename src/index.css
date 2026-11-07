@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/* Фирменная палитра EDUAPP (цвета взяты из логотипа) */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --color-teal: #22c1d6;
+  --color-teal-soft: #e3f8fb;
+  --color-sky: #4a90e2;
+  --color-blue: #2f6fe4;
+  --color-violet: #6d3fd9;
+  --color-violet-soft: #f0ebfd;
+  --color-ink: #1e1638;
+  --color-ink-2: #120e24;
+  --color-green: #16c060;
+  --color-green-dark: #0ea152;
+  --color-surface: #f4f7fb;
+  --color-line: #e5e9f2;
+  --color-muted: #64748b;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+  --animate-shimmer: shimmer 2.8s linear infinite;
+  --animate-blob: blob 18s ease-in-out infinite alternate;
+  --animate-rise: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes float {
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(2.6); opacity: 0; }
+  }
+  @keyframes shimmer {
+    to { background-position: -200% 0; }
+  }
+  @keyframes blob {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(60px, 40px, 0) scale(1.12); }
+    100% { transform: translate3d(-40px, 20px, 0) scale(0.95); }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-surface text-ink font-sans antialiased; }
+  :focus-visible { outline: 2px solid var(--color-teal); outline-offset: 3px; border-radius: 10px; }
+}
+
+/* Светящаяся кромка + подсветка за курсором (используется компонентом Tilt) */
+.glow-edge { position: relative; isolation: isolate; }
+.glow-edge::before {
+  content: ""; position: absolute; inset: -1px; z-index: 2; border-radius: inherit; padding: 1.5px; pointer-events: none;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), var(--glow, #22c1d6), rgba(109, 63, 217, 0.55) 35%, transparent 65%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity 0.35s ease;
+}
+.glow-edge::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.12), transparent 45%);
+  opacity: 0; transition: opacity 0.35s ease;
+}
+.glow-edge:hover::before, .glow-edge:hover::after { opacity: 1; }
+
+/* Появление при прокрутке. В слое components — чтобы hover-утилиты Tailwind на тех же элементах продолжали работать.
+   Класс .js ставится скриптом в <head>: без JavaScript контент виден сразу (важно для поисковиков). */
+@layer components {
+  .reveal { transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .js .reveal:not(.is-in) { opacity: 0; transform: translateY(24px); }
+}
+
+.scrollbar-none { scrollbar-width: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}

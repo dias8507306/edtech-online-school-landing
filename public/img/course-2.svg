@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="560" viewBox="0 0 640 560">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#ef4444"/></linearGradient></defs>
+  <rect width="640" height="560" fill="url(#g)"/>
+  <circle cx="544.0" cy="112.0" r="196.0" fill="#fff" opacity=".12"/>
+  <circle cx="64.0" cy="532.0" r="224.0" fill="#fff" opacity=".08"/>
+  <rect x="396.8" y="268.8" width="179.20000000000002" height="179.20000000000002" rx="14" fill="#fff" opacity=".18"/>
+  <text x="44.800000000000004" y="123.2" font-family="Inter,Arial,sans-serif" font-size="42" font-weight="700" fill="#fff" opacity=".85">Математика</text><text x="44.800000000000004" y="252" font-family="Inter,Arial,sans-serif" font-size="62" font-weight="800" fill="#fff">Тең шамалар</text><text x="44.800000000000004" y="325" font-family="Inter,Arial,sans-serif" font-size="62" font-weight="800" fill="#fff">есептері</text>
+</svg>
